@@ -3,8 +3,6 @@ try:
     import copy
     import json
     from pprint import pprint as dump
-    import AST as ast
-    import struct as obj
 except Exception as e:
     print("INIT type error: " + str(e),__file__)
     import sys
