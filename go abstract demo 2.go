@@ -42,6 +42,14 @@ func (t *NodeStorage) GetData(key string) interface{} {
 	return f.Name
 }
 
+func (t *NodeStorage) GetAllData() map[string]interface{} {
+	m := make(map[string]interface{})
+	for k,_ := range (*t.t) {
+		m[k]=t.GetData(k)
+	}
+	return m
+}
+
 type Data struct {
 	I int
 	Name string
@@ -60,4 +68,7 @@ func main() {
 	o := y.(*Data)
 	fmt.Printf(" %#[1]v \n", *o )
 	fmt.Printf(" %#[1]v \n", tb )
+	
+	a := tb.GetAllData()
+	fmt.Printf(" %#[1]v \n", a )
 }
